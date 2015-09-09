@@ -1,6 +1,5 @@
-// Enemies our player must avoid
-// Global variable used to set different positions for enemies
-var counter = 0;
+var counter = 0, // Global variable used to set different positions for enemies
+    player, allEnemies, lives;
 var Enemy = function () {
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
@@ -40,6 +39,7 @@ Enemy.prototype = {
             lives.pop();
             if (lives.length === 0) {
                 alert("Game over");
+                startGame();
             }
         }
     }
@@ -101,35 +101,37 @@ Player.prototype = {
 };
 
 // Object to keep track of player's lives
-var Live = function () {
+var Life = function () {
     // Initial position
     this.x = 460;
     this.y = 55;
     this.sprite = 'images/heart_icon.png';
 };
 
-Live.prototype = {
+Life.prototype = {
     render: function () {
         ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
     }
 };
 
-// Now instantiate your objects.
+function startGame() {
+    // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
-var allEnemies = [];
-for (var i = 0; i < 3; i++) {
-    allEnemies[i] = new Enemy();
-}
+    allEnemies = [];
+    for (var k = 0; k < 3; k++) {
+        allEnemies[k] = new Enemy();
+    }
 
 // Place the player object in a variable called player
-var player = new Player();
+    player = new Player();
 
 // Create an array containing player's lives
-var lives = [];
-for (var i = 0, j; i < 3; i++) {
-    j = 35 * i;
-    lives[i] = new Live();
-    lives[i].x -= j;
+    lives = [];
+    for (var i = 0, j; i < 3; i++) {
+        j = 35 * i;
+        lives[i] = new Life();
+        lives[i].x -= j;
+    }
 }
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
@@ -143,3 +145,4 @@ document.addEventListener('keyup', function (e) {
 
     player.handleInput(allowedKeys[e.keyCode]);
 });
+startGame();
