@@ -1,3 +1,14 @@
+
 body {
     text-align: center;
 }
+
+#start-screen {
+    margin-top: 10%;
+    background-color: rgba(141, 204, 73, 0.81);
+    min-height: 50%;
+    height: auto;
+    padding: 10% 5%;
+    overflow: auto;
+}
+
