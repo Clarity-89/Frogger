@@ -63,6 +63,7 @@ var Engine = (function (global) {
      * particularly setting the lastTime variable that is required for the
      * game loop.
      */
+
     function init() {
         reset();
         lastTime = Date.now();
@@ -185,7 +186,12 @@ var Engine = (function (global) {
         'images/char-boy.png',
         'images/heart_icon.png'
     ]);
-    Resources.onReady(init);
+
+    startButton.onclick = function () {
+        init();
+        startScreen.style.display = 'none';
+    };
+    //Resources.onReady(init);
 
     /* Assign the canvas' context object to the global variable (the window
      * object when run in a browser) so that developer's can use it more easily

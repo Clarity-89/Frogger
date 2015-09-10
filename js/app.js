@@ -1,5 +1,7 @@
 var counter = 0, // Global variable used to set different positions for enemies
-    player, allEnemies, lives;
+    player, allEnemies, lives,
+    startButton = document.getElementById('start'),
+    startScreen = document.getElementById('start-screen');
 var Enemy = function () {
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
@@ -145,4 +147,7 @@ document.addEventListener('keyup', function (e) {
 
     player.handleInput(allowedKeys[e.keyCode]);
 });
-startGame();
+
+
+    startGame();
+
