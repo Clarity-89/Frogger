@@ -19,10 +19,12 @@ body {
     align-items: center;
 }
 
-.col-md-2 > img {
-    background-color: black;
-    margin-top: -50px;
-}
+
 .col-md-2 > img:hover {
     cursor: pointer;
+    background-color: rgba(166, 166, 166, 0.51);
+}
+
+.active {
+    background-color: rgba(166, 166, 166, 0.51);
 }

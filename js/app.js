@@ -1,6 +1,7 @@
 var counter = 0, // Global variable used to set different positions for enemies
     player, allEnemies, lives,
     startButton = document.getElementById('start'),
+    chars = document.querySelectorAll('#chars .col-md-2 img'),
     startScreen = document.getElementById('start-screen');
 var Enemy = function () {
     // Variables applied to each of our instances go here,
@@ -148,6 +149,17 @@ document.addEventListener('keyup', function (e) {
     player.handleInput(allowedKeys[e.keyCode]);
 });
 
+//enable iterating over NodeList wit hforEach since it is not a proper Array
+NodeList.prototype.forEach = Array.prototype.forEach;
 
-    startGame();
+chars.forEach(function (el) {
+    el.onclick = function () {
+        chars.forEach(function (el2) {
+            el2.classList.remove('active');
+        });
+        el.classList.add('active');
+    }
+});
+
+startGame();
 
