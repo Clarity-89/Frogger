@@ -8,7 +8,21 @@ body {
     background-color: rgba(141, 204, 73, 0.81);
     min-height: 50%;
     height: auto;
-    padding: 10% 5%;
+    padding: 1% 5%;
     overflow: auto;
 }
 
+#chars {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.col-md-2 > img {
+    background-color: black;
+    margin-top: -50px;
+}
+.col-md-2 > img:hover {
+    cursor: pointer;
+}
