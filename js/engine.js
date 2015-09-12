@@ -197,11 +197,11 @@ var Engine = (function (global) {
         selected = chars.some(function (el) {
             return el.classList.contains('active');
         });
-        if (!selected){
+        if (!selected) {
             err.innerHTML = '<p>Select a character to begin</p>';
-            return;
         }
         else {
+            err.innerHTML = '';
             init();
         }
 

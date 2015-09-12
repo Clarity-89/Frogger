@@ -29,3 +29,10 @@ body {
 .active {
     background-color: rgba(166, 166, 166, 0.51);
 }
+
+.error-message {
+    background-color: red;
+    width: 400px;
+    text-align: center;
+    margin: 0 auto;
+}
