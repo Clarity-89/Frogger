@@ -66,6 +66,7 @@ var Engine = (function (global) {
 
     function init() {
         reset();
+        startGame();
         lastTime = Date.now();
         main();
     }
@@ -193,7 +194,6 @@ var Engine = (function (global) {
 
     startButton.onclick = function () {
         init();
-        startScreen.style.display = 'none';
     };
     //Resources.onReady(init);
 

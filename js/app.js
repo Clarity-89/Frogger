@@ -1,5 +1,5 @@
 var counter = 0, // Global variable used to set different positions for enemies
-    player, allEnemies, lives,
+    player, allEnemies, lives, sprite,
     startButton = document.getElementById('start'),
     chars = document.querySelectorAll('#chars .col-md-2 img'),
     startScreen = document.getElementById('start-screen');
@@ -50,13 +50,13 @@ Enemy.prototype = {
 // player class
 // This class requires an update(), render() and
 // a handleInput() method.
-var Player = function () {
+var Player = function (sprite) {
     // Initial position
     this.x = 200;
     this.y = 410;
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
-    this.sprite = 'images/char-boy.png';
+    this.sprite = sprite;
 
 };
 Player.prototype = {
@@ -104,7 +104,7 @@ Player.prototype = {
 };
 
 // Object to keep track of player's lives
-var Life = function () {
+var Life = function (sprite) {
     // Initial position
     this.x = 460;
     this.y = 55;
@@ -118,7 +118,9 @@ Life.prototype = {
 };
 
 function startGame() {
-    // Now instantiate your objects.
+    startScreen.style.display = 'none';
+    sprite = document.getElementsByClassName('active')[0].getAttribute('src');
+    // Now instantiate the objects.
 // Place all enemy objects in an array called allEnemies
     allEnemies = [];
     for (var k = 0; k < 3; k++) {
@@ -126,7 +128,7 @@ function startGame() {
     }
 
 // Place the player object in a variable called player
-    player = new Player();
+    player = new Player(sprite);
 
 // Create an array containing player's lives
     lives = [];
@@ -161,5 +163,6 @@ chars.forEach(function (el) {
     }
 });
 
-startGame();
+
+
 
