@@ -10,6 +10,8 @@ body {
     height: auto;
     padding: 1% 5%;
     overflow: auto;
+    font-family: 'Lato', sans-serif;
+    font-size: 18px;
 }
 
 #chars {
@@ -19,7 +21,6 @@ body {
     justify-content: center;
     align-items: center;
 }
-
 
 .col-md-2 > img:hover {
     cursor: pointer;
@@ -36,3 +37,4 @@ body {
     text-align: center;
     margin: 0 auto;
 }
+
