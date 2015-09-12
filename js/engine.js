@@ -193,7 +193,18 @@ var Engine = (function (global) {
     ]);
 
     startButton.onclick = function () {
-        init();
+        selectChar();
+        selected = chars.some(function (el) {
+            return el.classList.contains('active');
+        });
+        if (!selected){
+            err.innerHTML = '<p>Select a character to begin</p>';
+            return;
+        }
+        else {
+            init();
+        }
+
     };
     //Resources.onReady(init);
 

@@ -1,8 +1,16 @@
 var counter = 0, // Global variable used to set different positions for enemies
-    player, allEnemies, lives, sprite,
+    player, allEnemies, lives, sprite, selected,
     startButton = document.getElementById('start'),
     chars = document.querySelectorAll('#chars .col-md-2 img'),
+    err = document.getElementById('err'),
     startScreen = document.getElementById('start-screen');
+
+// Enable iterating over NodeList with forEach and some since it is not a proper Array
+NodeList.prototype.forEach = Array.prototype.forEach;
+NodeList.prototype.some = Array.prototype.some;
+
+//Check if a sprite was selected
+
 var Enemy = function () {
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
@@ -151,17 +159,18 @@ document.addEventListener('keyup', function (e) {
     player.handleInput(allowedKeys[e.keyCode]);
 });
 
-//enable iterating over NodeList wit hforEach since it is not a proper Array
-NodeList.prototype.forEach = Array.prototype.forEach;
+function selectChar() {
+    chars.forEach(function (el) {
+        el.onclick = function () {
+            chars.forEach(function (el2) {
+                el2.classList.remove('active');
+            });
+            el.classList.add('active');
+        }
+    });
+}
+selectChar();
 
-chars.forEach(function (el) {
-    el.onclick = function () {
-        chars.forEach(function (el2) {
-            el2.classList.remove('active');
-        });
-        el.classList.add('active');
-    }
-});
 
 
 
