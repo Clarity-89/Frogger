@@ -8,8 +8,15 @@ body {
     text-align: center;
 }
 
+#title {
+    font-family: 'Kaushan Script', cursive;
+    margin: 15px auto;
+    font-size: 66px;
+    color: rgba(38, 152, 13, 0.63);
+}
+
 #start-screen {
-    margin: 5% auto;
+    margin: 1% auto;
     min-height: 50%;
     padding-top: 2%;
     font-family: 'Lato', sans-serif;
@@ -35,7 +42,8 @@ body {
 }
 
 .error-message {
-    background-color: red;
+    background-color: rgba(255, 0, 0, 0.51);
+    border-radius: 17px;
     width: 400px;
     text-align: center;
     margin: 1% auto;
