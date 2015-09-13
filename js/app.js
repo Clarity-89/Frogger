@@ -71,6 +71,7 @@ Player.prototype = {
     update: function (vel_x, vel_y) {
         if (this.y < 0) {
             this.reset();
+            score.update();
         }
         if (this.x + vel_x / 10 < 400 && this.x + vel_x / 10 > 0) {
             this.x += vel_x;
@@ -139,12 +140,9 @@ Score.prototype = {
 
     update: function () {
         this.score += 1;
-    },
-
-    reset: function () {
-        this.score = 0;
     }
 };
+
 function startGame() {
     startScreen.style.display = 'none';
     sprite = document.getElementsByClassName('active')[0].getAttribute('src');
