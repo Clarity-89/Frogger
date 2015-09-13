@@ -125,6 +125,23 @@ Life.prototype = {
     }
 };
 
+var Score = function () {
+    this.score = 0;
+};
+
+Score.prototype = {
+    render: function () {
+        ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+    },
+
+    update: function () {
+        this.score += 1;
+    },
+
+    reset: function () {
+        this.score = 0;
+    }
+};
 function startGame() {
     startScreen.style.display = 'none';
     sprite = document.getElementsByClassName('active')[0].getAttribute('src');
