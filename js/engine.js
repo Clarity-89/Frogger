@@ -161,7 +161,7 @@ var Engine = (function (global) {
         });
 
         player.render();
-
+        score.render();
         lives.forEach(function (el) {
             el.render();
         });

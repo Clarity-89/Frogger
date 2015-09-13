@@ -1,5 +1,5 @@
 var counter = 0, // Global variable used to set different positions for enemies
-    player, allEnemies, lives, sprite, selected,
+    player, allEnemies, lives, sprite, selected, score,
     startButton = document.getElementById('start'),
     chars = document.querySelectorAll('#chars .col-md-2 img'),
     err = document.getElementById('err'),
@@ -127,11 +127,14 @@ Life.prototype = {
 
 var Score = function () {
     this.score = 0;
+    this.x = 10;
+    this.y = 80;
 };
 
 Score.prototype = {
     render: function () {
-        ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+        ctx.font = "32px 'Kaushan Script' cursive";
+        ctx.fillText('Score: ' + this.score, this.x, this.y);
     },
 
     update: function () {
@@ -162,6 +165,9 @@ function startGame() {
         lives[i] = new Life();
         lives[i].x -= j;
     }
+
+    // Instantiate score
+    score = new Score();
 }
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
