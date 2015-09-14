@@ -49,8 +49,8 @@ Enemy.prototype = {
             player.reset();
             lives.pop();
             if (lives.length === 0) {
-                alert("Game over");
-                startGame();
+                reset();
+                //startGame();
             }
         }
     }
@@ -180,6 +180,16 @@ document.addEventListener('keyup', function (e) {
     player.handleInput(allowedKeys[e.keyCode]);
 });
 
+/* This function does nothing but it could have been a good place to
+ * handle game reset states - maybe a new game menu or a game over screen
+ * those sorts of things. It's only called once by the init() method.
+ */
+function reset() {
+    //clear enemies list
+    allEnemies = null;
+    //clear lives list
+    lives = null;
+}
 function selectChar() {
     chars.forEach(function (el) {
         el.onclick = function () {
