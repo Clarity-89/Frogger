@@ -65,7 +65,7 @@ var Engine = (function (global) {
      */
 
     function init() {
-        reset();
+        //reset();
         startGame();
         lastTime = Date.now();
         main();
@@ -165,8 +165,8 @@ var Engine = (function (global) {
         lives.forEach(function (el) {
             el.render();
         });
+        if (over) ctx.clearRect(0, 0, canvas.width, canvas.height);
     }
-
 
 
     /* Go ahead and load all of the images we know we're going to need to
@@ -185,6 +185,7 @@ var Engine = (function (global) {
         'images/char-pink-girl.png',
         'images/char-princess-girl.png'
     ]);
+
 
     startButton.onclick = function () {
         selectChar();

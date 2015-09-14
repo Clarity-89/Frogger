@@ -1,5 +1,8 @@
 var counter = 0, // Global variable used to set different positions for enemies
     player, allEnemies, lives, sprite, selected, score,
+    over = false, // a switch variable to track if the player run out of lives
+    gameover = document.getElementById('gameover'),
+    scoreField = document.getElementById('score'),
     startButton = document.getElementById('start'),
     chars = document.querySelectorAll('#chars .col-md-2 img'),
     err = document.getElementById('err'),
@@ -85,8 +88,6 @@ Player.prototype = {
 
     },
     handleInput: function (key) {
-        console.log(this.x);
-        console.log(this.y);
         var val = 70;
         switch (key) {
             case 'up':
@@ -113,7 +114,7 @@ Player.prototype = {
 };
 
 // Object to keep track of player's lives
-var Life = function (sprite) {
+var Life = function () {
     // Initial position
     this.x = 460;
     this.y = 55;
@@ -127,7 +128,7 @@ Life.prototype = {
 };
 
 var Score = function () {
-    this.score = 0;
+    this.count = 0;
     this.x = 10;
     this.y = 80;
 };
@@ -135,11 +136,11 @@ var Score = function () {
 Score.prototype = {
     render: function () {
         ctx.font = "32px 'Kaushan Script' cursive";
-        ctx.fillText('Score: ' + this.score, this.x, this.y);
+        ctx.fillText('Score: ' + this.count, this.x, this.y);
     },
 
     update: function () {
-        this.score += 1;
+        this.count += 1;
     }
 };
 
@@ -185,10 +186,15 @@ document.addEventListener('keyup', function (e) {
  * those sorts of things. It's only called once by the init() method.
  */
 function reset() {
-    //clear enemies list
-    allEnemies = null;
-    //clear lives list
-    lives = null;
+    /*//clear enemies list
+     allEnemies = null;
+     //clear lives list
+     lives = null;*/
+    gameover.style.display = 'block';
+    scoreField.innerHTML += ' ' + score.count;
+    over = true;
+
+
 }
 function selectChar() {
     chars.forEach(function (el) {
