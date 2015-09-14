@@ -199,8 +199,13 @@ var Engine = (function (global) {
             err.innerHTML = '';
             init();
         }
-
     };
+
+    tryAgain.onclick = function () {
+        init();
+    };
+
+
     //Resources.onReady(init);
 
     /* Assign the canvas' context object to the global variable (the window

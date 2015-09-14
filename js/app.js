@@ -1,5 +1,6 @@
 var counter = 0, // Global variable used to set different positions for enemies
     player, allEnemies, lives, sprite, selected, score,
+    tryAgain = document.getElementById('try-again'),
     over = false, // a switch variable to track if the player run out of lives
     gameover = document.getElementById('gameover'),
     scoreField = document.getElementById('score'),
@@ -145,7 +146,10 @@ Score.prototype = {
 };
 
 function startGame() {
+    over = false;
     startScreen.style.display = 'none';
+    gameover.style.display = 'none';
+    scoreField.innerHTML = 'Your score is:';
     sprite = document.getElementsByClassName('active')[0].getAttribute('src');
     // Now instantiate the objects.
 // Place all enemy objects in an array called allEnemies
@@ -186,14 +190,10 @@ document.addEventListener('keyup', function (e) {
  * those sorts of things. It's only called once by the init() method.
  */
 function reset() {
-    /*//clear enemies list
-     allEnemies = null;
-     //clear lives list
-     lives = null;*/
+
     gameover.style.display = 'block';
     scoreField.innerHTML += ' ' + score.count;
     over = true;
-
 
 }
 function selectChar() {
