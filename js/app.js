@@ -136,7 +136,7 @@ var Score = function () {
 
 Score.prototype = {
     render: function () {
-        ctx.font = "32px 'Kaushan Script' cursive";
+        ctx.font = "32px 'Kaushan Script'";
         ctx.fillText('Score: ' + this.count, this.x, this.y);
     },
 
